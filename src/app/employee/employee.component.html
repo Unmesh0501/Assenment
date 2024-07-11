@@ -1,0 +1,37 @@
+<div>
+    <form [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name">
+      
+      <label for="salary">Salary:</label>
+      <input id="salary" formControlName="salary">
+      
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age">
+      
+      <button type="submit">Save</button>
+    </form>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.salary }}</td>
+          <td>{{ employee.age }}</td>
+          <td>
+            <button (click)="editEmployee(employee)">Edit</button>
+            <button (click)="deleteEmployee(employee.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
